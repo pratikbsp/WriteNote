@@ -1,0 +1,36 @@
+package com.freakypulse.writenote;
+
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class DisplayDeleteActivity extends ActionBarActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.AppBaseTheme1);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_display_delete);
+		final TextView textView_header = (TextView) findViewById(R.id.header);
+
+		final String randomText = getIntent().getExtras().getString("Data");
+		int index = Integer.parseInt(randomText);
+		int pos = MainActivity.deleteKeyList.get(index);
+		final String text = MainActivity.deletepreferences.getString("data" + pos, "");
+		final String text_2 = MainActivity.deletepreferences_2.getString("data" + pos,"")+"                                                                                                       "
+				+ "                                                                                                                   "
+				+ "                                                                                                                   "
+				+ "                                                                                                                   "
+				+ "                                                                                                                   "
+				+ "                                                                                                                   "
+				;
+		// textView.setText(text_2);
+		textView_header.setText(text);
+		TextView txtView = (TextView)findViewById(R.id.txtView);
+		txtView.setText(text_2);
+	
+	
+	}}
